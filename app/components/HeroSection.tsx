@@ -1,9 +1,10 @@
+"use client";
+
 import { ChevronDown, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import heroImage from "@/assets/hero-stadium.jpeg";
 import clubCrest from "@/assets/club-crest.png";
-import Image from "next/image";
 
 const HeroSection = () => {
   const { t } = useI18n();
@@ -24,7 +25,7 @@ const HeroSection = () => {
         transition={{ duration: 1.8, ease: "easeOut" }}
       />
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+      <div className="absolute inset-0 bg-linear-to-b from-background/70 via-background/50 to-background" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 gap-6 md:gap-8 lg:gap-10 max-w-3xl mx-auto">

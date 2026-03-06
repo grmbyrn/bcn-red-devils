@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { mockEvents, mockNews } from "@/lib/mock-data";

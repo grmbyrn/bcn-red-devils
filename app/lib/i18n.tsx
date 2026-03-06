@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useContext, useState, ReactNode } from "react";
 
 type Lang = "en" | "es";

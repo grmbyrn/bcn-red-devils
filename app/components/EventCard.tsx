@@ -1,3 +1,4 @@
+"use client"
 import { MapPin, Clock, Users, Check } from "lucide-react";
 import { useState } from "react";
 import { useI18n } from "@/lib/i18n";
