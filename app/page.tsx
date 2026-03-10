@@ -2,16 +2,16 @@
 
 import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { mockEvents, mockNews } from "@/lib/mock-data";
-import EventCard from "@/components/EventCard";
+// import { mockNews } from "@/lib/mock-data";
+import MatchesList from "@/components/MatchesList";
 import NewsCard from "@/components/NewsCard";
 import QuickLinks from "@/components/QuickLinks";
 import HeroSection from "@/components/HeroSection";
+import NewsList from "./components/NewsList";
 
 export default function Home() {
   const { t } = useI18n();
-  const upcomingEvents = mockEvents.slice(0, 2);
-  const latestNews = mockNews.slice(0, 2);
+  // const latestNews = mockNews.slice(0, 2);
   return (
     <div className="pb-4">
       {/* Hero */}
@@ -30,29 +30,13 @@ export default function Home() {
               {t.viewAll} <ChevronRight size={14} />
             </button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {upcomingEvents.map((e) => (
-              <EventCard key={e.id} event={e} />
-            ))}
-          </div>
+          <MatchesList />
         </section>
 
         {/* Latest News */}
         <section className="mt-8 md:mt-12">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg md:text-2xl font-bold font-display text-foreground">{t.latestNews}</h2>
-            <button
-              // onClick={() => navigate("/news")}
-              className="flex items-center gap-0.5 text-xs md:text-sm text-primary font-semibold uppercase tracking-wide hover:underline"
-            >
-              {t.viewAll} <ChevronRight size={14} />
-            </button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {latestNews.map((p) => (
-              <NewsCard key={p.id} post={p} />
-            ))}
-          </div>
+          <h2 className="text-lg md:text-2xl font-bold font-display text-foreground mb-4">Latest News</h2>
+          <NewsList />
         </section>
 
         {/* Quick Links */}
