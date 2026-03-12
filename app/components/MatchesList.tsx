@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import type { SimpleMatch } from "../../lib/matches";
 type ExtendedMatch = SimpleMatch & { homeCrest?: string | null; awayCrest?: string | null };
@@ -49,12 +48,7 @@ export default function MatchesList() {
   if (!matches || matches.length === 0) return <div className="text-sm text-muted">{t.noEvents}</div>;
 
   return (
-    <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.7, delay: 0.6, ease: "backOut" }}
-    >
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {matches.slice(0, 4).map((m) => {
         const date = new Date(m.utcDate);
         const dt = date.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
@@ -84,6 +78,6 @@ export default function MatchesList() {
           </article>
         );
       })}
-    </motion.div>
+    </div>
   );
 }

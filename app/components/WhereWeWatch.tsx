@@ -1,22 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
-
-const MAP_QUERY = encodeURIComponent("Via Laietana 44, Ciutat Vella, 08003 Barcelona");
 
 export default function WhereWeWatch() {
   const { t } = useI18n();
+  const MAP_QUERY = encodeURIComponent(t.whereWeWatch.address);
 
   return (
-    <motion.section
-      id="where-we-watch"
-      className="mt-4 md:mt-6 no-hover"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.7, delay: 0.4, ease: "backOut" }}
-    >
+    <section id="where-we-watch" className="mt-4 md:mt-6 no-hover">
       <h2 className="section-title text-black mb-4">{t.whereWeWatch.title}</h2>
 
       <div className="card p-4 md:p-6">
@@ -43,6 +34,6 @@ export default function WhereWeWatch() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

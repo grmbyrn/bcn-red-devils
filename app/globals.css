@@ -343,7 +343,7 @@ h2, .section-title { font-size: var(--type-section-size); font-weight: var(--typ
 
 
   /* Motion utilities: simple entrance animation used across components */
-  @keyframes fadeUp {
+  @keyframes fade-up {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
   }
@@ -351,7 +351,7 @@ h2, .section-title { font-size: var(--type-section-size); font-weight: var(--typ
   .motion-reveal {
     opacity: 0;
     transform: translateY(12px);
-    animation: fadeUp 600ms cubic-bezier(.2,.9,.2,1) forwards;
+    animation: fade-up 600ms cubic-bezier(.2,.9,.2,1) forwards;
   }
 
   .motion-reveal-slow { animation-duration: 900ms; }

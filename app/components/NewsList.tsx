@@ -2,7 +2,6 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { motion } from "framer-motion";
 import NewsCard from "./NewsCard";
 import SkeletonCard from "./SkeletonCard";
 import ErrorBox from "./ErrorBox";
@@ -48,15 +47,10 @@ export default function NewsList() {
   if (!articles.length) return <div className="text-sm text-muted">No news available</div>;
 
   return (
-    <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.7, delay: 0.8, ease: "backOut" }}
-    >
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {articles.slice(0, 4).map((a) => (
         <NewsCard key={a.id} article={a} />
       ))}
-    </motion.div>
+    </div>
   );
 }
