@@ -23,7 +23,6 @@ export default function Home() {
       {/* Content sections */}
       <div className="max-w-5xl mx-auto px-4 md:px-8">
         <motion.section
-          id="upcoming-matches"
           className="mt-4 md:mt-6 no-hover"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +33,6 @@ export default function Home() {
         </motion.section>
 
         <motion.section
-          id="upcoming-matches"
           className="mt-4 md:mt-6 no-hover"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
