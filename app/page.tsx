@@ -4,10 +4,12 @@ import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 // import { mockNews } from "@/lib/mock-data";
 import MatchesList from "@/components/MatchesList";
-import NewsCard from "@/components/NewsCard";
-import QuickLinks from "@/components/QuickLinks";
+import JoinUs from "./components/JoinUs";
 import HeroSection from "@/components/HeroSection";
+import NextMatchCountdown from "@/components/NextMatchCountdown";
 import NewsList from "./components/NewsList";
+import AboutUs from "@/components/AboutUs";
+import WhereWeWatch from "@/components/WhereWeWatch";
 
 export default function Home() {
   const { t } = useI18n();
@@ -16,9 +18,13 @@ export default function Home() {
     <div className="pb-4">
       {/* Hero */}
       <HeroSection />
+      <NextMatchCountdown />
 
       {/* Content sections */}
       <div className="max-w-5xl mx-auto px-4 md:px-8">
+        <AboutUs />
+        <WhereWeWatch />
+
         {/* Upcoming Matches */}
         <section id="upcoming-matches" className="mt-4 md:mt-6 no-hover">
           <div className="flex items-center justify-between mb-2">
@@ -33,15 +39,15 @@ export default function Home() {
         </section>
 
         {/* Latest News */}
-        <section className="mt-4 md:mt-6 no-hover">
+        <section id="latest-news" className="mt-4 md:mt-6 no-hover">
           <h2 className="section-title mb-2">{t.latestNews}</h2>
           <NewsList />
         </section>
 
-        {/* Quick Links */}
-        <section className="mt-4 md:mt-6 no-hover">
-          <h2 className="section-title mb-2">{t.quickLinks}</h2>
-          <QuickLinks />
+        {/* Join Us */}
+        <section id="join-us" className="mt-4 md:mt-6 no-hover">
+          <h2 className="section-title mb-2">{t.joinUs}</h2>
+          <JoinUs />
         </section>
       </div>
     </div>

@@ -3,8 +3,10 @@
 import { useEffect, useState, useCallback } from "react";
 import { useI18n } from "@/lib/i18n";
 import type { SimpleMatch } from "../../lib/matches";
+type ExtendedMatch = SimpleMatch & { homeCrest?: string | null; awayCrest?: string | null };
 import SkeletonCard from "./SkeletonCard";
 import ErrorBox from "./ErrorBox";
+import TeamCrest from "./TeamCrest";
 import { fetcher } from "@/lib/fetcher";
 
 export default function MatchesList() {
@@ -58,7 +60,18 @@ export default function MatchesList() {
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="text-lg font-semibold card-title">{m.homeTeam} <span className="mx-2 text-muted">vs</span><br /> {m.awayTeam}</div>
+                <div>
+                  <div className="flex items-center gap-3">
+                    <TeamCrest key={`h-${m.id}`} name={m.homeTeam} src={(m as ExtendedMatch).homeCrest ?? null} />
+                    <div className="text-lg text-white font-semibold">{m.homeTeam}</div>
+                  </div>
+
+                  <div className="flex items-center gap-3 mt-2">
+                    <TeamCrest key={`a-${m.id}`} name={m.awayTeam} src={(m as ExtendedMatch).awayCrest ?? null} />
+                    <div className="text-lg text-white font-semibold">{m.awayTeam}</div>
+                  </div>
+                </div>
+
                 <div className="text-xs text-muted">{dt}</div>
               </div>
             </div>

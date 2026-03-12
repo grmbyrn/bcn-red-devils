@@ -13,6 +13,8 @@
   --color-mid: #2A2A2A;
   --color-white: #FFFFFF;
   --color-grey: #A0A0A0;
+  /* Muted (lighter) text for use on dark surfaces to improve contrast */
+  --color-muted: rgba(255,255,255,0.80);
 
   --color-background: var(--color-black);
   --color-foreground: var(--color-white);
@@ -161,7 +163,8 @@ h3, .card-title {
 p, ul, ol, li {
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
-  color: var(--color-white);
+  /* inherit so paragraphs follow their container's text color (light/dark cards) */
+  color: inherit;
 }
 
 /* Meta / labels */
@@ -255,6 +258,13 @@ h2, .section-title { font-size: var(--type-section-size); font-weight: var(--typ
   background: linear-gradient(180deg, rgba(26,26,26,1) 0%, rgba(36,36,36,1) 100%);
   transform: none;
   transition: background var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
+}
+
+/* Improve contrast for secondary/meta text inside dark cards */
+.card p,
+.card .meta,
+.card .text-muted {
+  color: var(--color-muted);
 }
 
 /* Utility to disable hover interactions for sections that should be static */

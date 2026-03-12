@@ -18,7 +18,7 @@ type Translations = {
   clubTitle: string;
   clubSubtitle: string;
   noEvents: string;
-  quickLinks: string;
+  joinUs: string;
   heroTitle: string;
   heroTagline: string;
   heroCtaPrimary: string;
@@ -46,7 +46,7 @@ export function useI18n() {
     clubTitle: "Red Devils BCN",
     clubSubtitle: "Manchester United Supporters Club · Barcelona",
     noEvents: "No upcoming events",
-    quickLinks: "Quick Links",
+    joinUs: "Join Us",
     heroTitle: "Reds Barcelona",
     heroTagline: "Manchester United supporters in the heart of Catalonia",
     heroCtaPrimary: "View Next Match",
