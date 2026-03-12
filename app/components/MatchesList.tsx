@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useI18n } from "@/lib/i18n";
 import type { SimpleMatch } from "../../lib/matches";
+import SkeletonCard from "./SkeletonCard";
+import ErrorBox from "./ErrorBox";
+import { fetcher } from "@/lib/fetcher";
 
 export default function MatchesList() {
   const { t } = useI18n();
@@ -10,30 +13,36 @@ export default function MatchesList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    let mounted = true;
-    // Fetch only Manchester United games by default (teamId=66)
-    fetch("/api/matches?teamId=66")
-      .then((res) => res.json())
-      .then((data) => {
-        if (!mounted) return;
-        const payload = data as { matches?: SimpleMatch[]; error?: string };
-        if (payload.matches) setMatches(payload.matches);
-        else setError(payload.error ?? "No data");
-      })
-      .catch((e: unknown) => {
-        if (!mounted) return;
-        setError(e instanceof Error ? e.message : String(e));
-      })
-      .finally(() => mounted && setLoading(false));
-
-    return () => {
-      mounted = false;
-    };
+  const load = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await fetcher("/api/matches?teamId=66");
+      const payload = data as { matches?: SimpleMatch[]; error?: string };
+      if (payload.matches) setMatches(payload.matches);
+      else setError(payload.error ?? "No data");
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  if (loading) return <div>Loading…</div>;
-  if (error) return <div className="text-sm text-red-600">{error}</div>;
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <SkeletonCard />
+        <SkeletonCard />
+      </div>
+    );
+  }
+
+  if (error) return <ErrorBox message={error} onRetry={() => load()} />;
+
   if (!matches || matches.length === 0) return <div className="text-sm text-muted">{t.noEvents}</div>;
 
   return (
@@ -42,13 +51,16 @@ export default function MatchesList() {
         const date = new Date(m.utcDate);
         const dt = date.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
         return (
-          <div key={m.id} className="p-4 border rounded-md bg-card">
-            <div className="flex items-center justify-between">
-              <div className="text-sm text-muted">{m.competition}</div>
-              <div className="text-xs text-muted">{dt}</div>
-            </div>
-            <div className="mt-2 text-lg font-semibold">
-              {m.homeTeam} <span className="mx-2 text-primary">vs</span> {m.awayTeam}
+          <div key={m.id} className="bg-card rounded-lg overflow-hidden border border-transparent hover:border-l-4 hover:border-l-primary transition-colors">
+            <div className="p-4">
+              <div className="mb-2">
+                <span className="section-label" style={{ color: "var(--color-primary)" }}>{m.competition}</span>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="text-lg font-semibold card-title text-foreground">{m.homeTeam} <span className="mx-2 text-muted">vs</span> {m.awayTeam}</div>
+                <div className="text-xs text-muted">{dt}</div>
+              </div>
             </div>
           </div>
         );

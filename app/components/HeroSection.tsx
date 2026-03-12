@@ -14,33 +14,40 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-screen md:h-[80vh] lg:h-[85vh] flex items-center justify-center overflow-hidden">
-      {/* Background image */}
+    <section className="hero relative w-full overflow-hidden">
+      {/* Background image (full-bleed) */}
       <motion.img
         src={heroImage.src}
-        alt=""
+        alt="Stadium"
         className="absolute inset-0 w-full h-full object-cover object-center"
-        initial={{ scale: 1.15 }}
+        initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.8, ease: "easeOut" }}
       />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-linear-to-b from-background/70 via-background/50 to-background" />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 gap-6 md:gap-8 lg:gap-10 max-w-3xl mx-auto">
+      {/* Dark gradient overlay (bottom-up) */}
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background: `linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.6) 35%, rgba(10,10,10,0.25) 70%, rgba(10,10,10,0) 100%)`,
+        }}
+      />
+
+      {/* Content container */}
+      <div className="relative z-10 container flex flex-col items-center text-center px-6 gap-6 md:gap-8 lg:gap-10">
         <motion.img
           src={clubCrest.src}
           alt="Red Devils BCN"
-          className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain drop-shadow-lg"
-          initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+          className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain"
+          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "backOut" }}
+          transition={{ duration: 0.6, delay: 0.3, ease: "backOut" }}
         />
 
         <div className="space-y-3 md:space-y-4 overflow-hidden">
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-display tracking-wider text-foreground leading-none"
+            className="hero-heading font-display leading-none uppercase"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
@@ -48,7 +55,7 @@ const HeroSection = () => {
             {t.heroTitle}
           </motion.h1>
           <motion.p
-            className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-md lg:max-w-lg mx-auto"
+            className="text-base md:text-lg lg:text-xl text-muted max-w-md lg:max-w-lg mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
@@ -65,7 +72,8 @@ const HeroSection = () => {
         >
           <button
             onClick={scrollToMatches}
-            className="px-8 py-3 md:px-10 md:py-4 rounded-lg bg-gradient-red text-primary-foreground font-display text-sm md:text-base uppercase tracking-widest font-semibold hover:opacity-90 transition-opacity animate-pulse-red"
+            className="btn-primary px-8 py-3 md:px-10 md:py-4 text-sm md:text-base uppercase tracking-[0.12em] font-semibold"
+            style={{ borderRadius: "2px" }}
           >
             {t.heroCtaPrimary}
           </button>
@@ -73,7 +81,8 @@ const HeroSection = () => {
             href="https://chat.whatsapp.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 px-8 py-3 md:px-10 md:py-4 rounded-lg border border-foreground/20 text-foreground font-display text-sm md:text-base uppercase tracking-widest font-semibold hover:bg-foreground/10 transition-colors"
+            className="flex items-center justify-center gap-2 px-8 py-3 md:px-10 md:py-4 text-foreground border border-white/20 text-sm md:text-base uppercase tracking-[0.12em] font-semibold"
+            style={{ background: "transparent" }}
           >
             <MessageCircle size={16} />
             {t.heroCtaSecondary}

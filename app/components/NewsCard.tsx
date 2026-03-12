@@ -14,27 +14,35 @@ const NewsCard = ({ article }: { article: NewsArticle }) => {
       href={article.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-card rounded-lg border border-border hover:border-primary/30 transition-colors overflow-hidden flex flex-col"
+      className="bg-card rounded-lg overflow-hidden flex flex-col border border-transparent hover:border-l-4 hover:border-l-primary transition-colors"
     >
       {article.imageUrl && (
-        <div className="relative w-full h-48 md:h-56 lg:h-64">
-          <Image
-            src={article.imageUrl}
-            alt={article.title}
-            className="object-cover object-top"
-            fill
-            sizes="(max-width: 640px) 100vw, 50vw"
-          />
+        <div className="w-full">
+          <div className="img-16-9 relative w-full">
+            <Image
+              src={article.imageUrl}
+              alt={article.title}
+              className="object-cover object-top"
+              fill
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+          </div>
         </div>
       )}
+
       <div className="p-4 flex flex-col flex-1">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-[10px] font-semibold text-accent uppercase tracking-wider">{formatted}</span>
-          <span className="text-muted-foreground">·</span>
-          <span className="text-[10px] text-muted-foreground">{article.source}</span>
+        <div className="mb-2">
+          <span className="section-label" style={{ color: "var(--color-primary)" }}>{article.source}</span>
         </div>
-        <h3 className="font-display text-base font-bold text-foreground leading-tight mb-2">{article.title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{stripHtml(article.description)}</p>
+
+        <div className="flex items-center gap-2 mb-2 text-xs text-muted">
+          <span className="font-semibold">{formatted}</span>
+          <span>·</span>
+          <span className="text-muted">{article.source}</span>
+        </div>
+
+        <h3 className="card-title mb-2">{article.title}</h3>
+        <p className="text-sm text-muted leading-relaxed line-clamp-3">{stripHtml(article.description)}</p>
       </div>
     </a>
   );
