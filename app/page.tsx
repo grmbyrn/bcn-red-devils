@@ -4,10 +4,10 @@ import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 // import { mockNews } from "@/lib/mock-data";
 import MatchesList from "@/components/MatchesList";
-import JoinUs from "./components/JoinUs";
+import JoinUs from "@/components/JoinUs";
 import HeroSection from "@/components/HeroSection";
 import NextMatchCountdown from "@/components/NextMatchCountdown";
-import NewsList from "./components/NewsList";
+import NewsList from "@/components/NewsList";
 import AboutUs from "@/components/AboutUs";
 import WhereWeWatch from "@/components/WhereWeWatch";
 

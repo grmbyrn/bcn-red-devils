@@ -2,7 +2,7 @@ const MAP_QUERY = encodeURIComponent("Via Laietana 44, Ciutat Vella, 08003 Barce
 
 export default function WhereWeWatch() {
   return (
-    <section id="where-we-watch" className="mt-4 md:mt-6">
+    <section id="where-we-watch" className="mt-4 md:mt-6 no-hover">
       <h2 className="section-title text-black mb-4">Where We Watch</h2>
 
       <div className="card p-4 md:p-6">
@@ -20,7 +20,8 @@ export default function WhereWeWatch() {
                 src={`https://maps.google.com/maps?q=${MAP_QUERY}&z=15&output=embed`}
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
+                style={{ border: 0, backgroundColor: "transparent" }}
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

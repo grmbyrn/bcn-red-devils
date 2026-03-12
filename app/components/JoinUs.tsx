@@ -1,5 +1,8 @@
+"use client";
+
 import { MessageCircle, Instagram } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { WHATSAPP_INVITE_URL } from "@/lib/constants";
 import Image from "next/image";
 
 const JoinUs = () => {
@@ -24,7 +27,7 @@ const JoinUs = () => {
         <div className="min-h-40 flex items-center justify-center">
           <div className="flex flex-col sm:flex-row gap-6 items-center w-full">
             <a
-              href="https://chat.whatsapp.com/Fuf05kSuITp2dUoody1qtZ"
+              href={WHATSAPP_INVITE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-4 px-8 py-4 rounded-lg text-lg font-bold text-white shadow-xl"

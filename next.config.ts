@@ -2,8 +2,17 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    // allow loading images from The Guardian CDN used in mock/news data
-    domains: ["media.guim.co.uk", "crests.football-data.org"],
+    // allow loading images from The Guardian CDN and football-data crests
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "media.guim.co.uk",
+      },
+      {
+        protocol: "https",
+        hostname: "crests.football-data.org",
+      },
+    ],
   },
 };
 

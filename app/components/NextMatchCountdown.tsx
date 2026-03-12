@@ -86,11 +86,11 @@ export default function NextMatchCountdown({ targetDate }: { targetDate?: string
   if (!target) return null;
 
   return (
-    <div id="next-match-countdown" className="sticky top-0 z-60 w-full">
+    <div id="next-match-countdown" className="sticky top-0 z-50 w-full">
       <div className="w-full" style={{ background: "var(--color-dark)" }}>
         <div className="max-w-5xl mx-auto w-full px-4 md:px-8 py-2 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <TeamCrest key={homeTeam ?? "home"} name={homeTeam} src={homeCrestUrl} size={40} />
+            <TeamCrest name={homeTeam} src={homeCrestUrl} size={40} />
           </div>
 
           <div className="flex items-center gap-3">
@@ -105,7 +105,7 @@ export default function NextMatchCountdown({ targetDate }: { targetDate?: string
           </div>
 
           <div className="flex items-center gap-4">
-            <TeamCrest key={awayTeam ?? "away"} name={awayTeam} src={awayCrestUrl} size={40} />
+            <TeamCrest name={awayTeam} src={awayCrestUrl} size={40} />
           </div>
         </div>
       </div>

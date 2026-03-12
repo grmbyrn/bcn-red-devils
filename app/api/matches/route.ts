@@ -32,50 +32,55 @@ export async function GET(req: NextRequest) {
 
   const fdMatches: FootballDataMatch[] = Array.isArray(data.matches) ? data.matches : [];
 
-  // Map basic match shape and include team ids if present
-  const matches = await Promise.all(
-    fdMatches.map(async (m) => {
-      const homeId = m.homeTeam?.id ?? null;
-      const awayId = m.awayTeam?.id ?? null;
+  // Collect unique team IDs to avoid 2N requests and rate limits
+  const teamIdSet = new Set<number>();
+  for (const m of fdMatches) {
+    if (m.homeTeam?.id) teamIdSet.add(m.homeTeam.id);
+    if (m.awayTeam?.id) teamIdSet.add(m.awayTeam.id);
+  }
 
-      // attempt to fetch crest urls for teams when ids are available
-      let homeCrest: string | null = null;
-      let awayCrest: string | null = null;
+  const uniqueTeamIds = Array.from(teamIdSet);
 
-      const fetchTeam = async (id: number | null) => {
-        if (!id) return null;
-        try {
-          const r = await fetch(`https://api.football-data.org/v4/teams/${id}`, {
-            headers: { "X-Auth-Token": process.env.FOOTBALL_DATA_API_KEY ?? "" },
-            next: { revalidate: 3600 },
-          });
-          if (!r.ok) return null;
-          const teamJson = await r.json();
-          return teamJson.crestUrl || teamJson.crest || teamJson.crestUrlSvg || null;
-        } catch {
-          return null;
-        }
-      };
+  // Fetch each unique team once in parallel and store crestUrl in a Map<id, crest|null>
+  const fetchTeamById = async (id: number) => {
+    try {
+      const r = await fetch(`https://api.football-data.org/v4/teams/${id}`, {
+        headers: { "X-Auth-Token": process.env.FOOTBALL_DATA_API_KEY ?? "" },
+        // cache team info for longer
+        next: { revalidate: 86400 },
+      });
+      if (!r.ok) return null;
+      const teamJson = await r.json();
+      return teamJson.crestUrl || teamJson.crest || teamJson.crestUrlSvg || null;
+    } catch {
+      return null;
+    }
+  };
 
-      // fetch both in parallel
-      const [hc, ac] = await Promise.all([fetchTeam(homeId), fetchTeam(awayId)]);
-      homeCrest = hc;
-      awayCrest = ac;
+  const teamResults = await Promise.all(uniqueTeamIds.map((id) => fetchTeamById(id)));
+  const teamCrestMap = new Map<number, string | null>();
+  uniqueTeamIds.forEach((id, idx) => teamCrestMap.set(id, teamResults[idx] ?? null));
 
-      return {
-        id: m.id,
-        utcDate: m.utcDate,
-        competition: m.competition?.name ?? null,
-        homeTeam: m.homeTeam?.name ?? "",
-        awayTeam: m.awayTeam?.name ?? "",
-        homeTeamId: homeId,
-        awayTeamId: awayId,
-        homeCrest,
-        awayCrest,
-        status: m.status,
-      };
-    })
-  );
+  // Map fdMatches to response using the crest map
+  const matches = fdMatches.map((m) => {
+    const homeId = m.homeTeam?.id ?? null;
+    const awayId = m.awayTeam?.id ?? null;
+    const homeCrest = homeId ? teamCrestMap.get(homeId) ?? null : null;
+    const awayCrest = awayId ? teamCrestMap.get(awayId) ?? null : null;
+
+    return {
+      id: m.id,
+      utcDate: m.utcDate,
+      competition: m.competition?.name ?? null,
+      homeTeam: m.homeTeam?.name ?? "",
+      awayTeam: m.awayTeam?.name ?? "",
+      homeTeamId: homeId,
+      awayTeamId: awayId,
+      homeCrest,
+      awayCrest,
+      status: m.status,
+    };
+  });
 
   return NextResponse.json({ matches });
 }

@@ -23,6 +23,11 @@ type Translations = {
   heroTagline: string;
   heroCtaPrimary: string;
   heroCtaSecondary: string;
+  about: {
+    paragraph1: string;
+    paragraph2: string;
+    paragraph3: string;
+  };
 };
 
 export function useI18n() {
@@ -51,6 +56,14 @@ export function useI18n() {
     heroTagline: "Manchester United supporters in the heart of Catalonia",
     heroCtaPrimary: "View Next Match",
     heroCtaSecondary: "Join the Group",
+    about: {
+      paragraph1:
+        "Red Devils BCN is a Manchester United supporters group based in Barcelona. Founded in 2025, we gather fans from across Catalonia to watch matches, organise meetups, and support the team together.",
+      paragraph2:
+        "We host regular match-viewing events at local venues, social gatherings, and community activities to bring Reds supporters together in a friendly, inclusive environment.",
+      paragraph3:
+        "New members are always welcome — join us to share the passion for Manchester United in Barcelona.",
+    },
   };
 
   return { t };

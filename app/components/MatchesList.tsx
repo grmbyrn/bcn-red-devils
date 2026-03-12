@@ -11,7 +11,7 @@ import { fetcher } from "@/lib/fetcher";
 
 export default function MatchesList() {
   const { t } = useI18n();
-  const [matches, setMatches] = useState<SimpleMatch[]>([]);
+  const [matches, setMatches] = useState<ExtendedMatch[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,7 +20,7 @@ export default function MatchesList() {
     setError(null);
     try {
       const data = await fetcher("/api/matches?teamId=66");
-      const payload = data as { matches?: SimpleMatch[]; error?: string };
+      const payload = data as { matches?: ExtendedMatch[]; error?: string };
       if (payload.matches) setMatches(payload.matches);
       else setError(payload.error ?? "No data");
     } catch (e: unknown) {
@@ -62,12 +62,12 @@ export default function MatchesList() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-3">
-                    <TeamCrest key={`h-${m.id}`} name={m.homeTeam} src={(m as ExtendedMatch).homeCrest ?? null} />
+                    <TeamCrest key={`h-${m.id}`} name={m.homeTeam} src={m.homeCrest ?? null} />
                     <div className="text-lg text-white font-semibold">{m.homeTeam}</div>
                   </div>
 
                   <div className="flex items-center gap-3 mt-2">
-                    <TeamCrest key={`a-${m.id}`} name={m.awayTeam} src={(m as ExtendedMatch).awayCrest ?? null} />
+                    <TeamCrest key={`a-${m.id}`} name={m.awayTeam} src={m.awayCrest ?? null} />
                     <div className="text-lg text-white font-semibold">{m.awayTeam}</div>
                   </div>
                 </div>

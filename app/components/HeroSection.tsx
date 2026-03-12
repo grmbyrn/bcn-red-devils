@@ -3,6 +3,7 @@
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
+import { WHATSAPP_INVITE_URL } from "@/lib/constants";
 
 // Use public images to avoid alias resolution issues during build
 const heroImageSrc = "/images/hero-stadium.jpeg";
@@ -91,7 +92,7 @@ const HeroSection = () => {
             {t.heroCtaPrimary}
           </button>
           <a
-            href="https://chat.whatsapp.com/Fuf05kSuITp2dUoody1qtZ"
+            href={WHATSAPP_INVITE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary flex items-center justify-center gap-2 text-sm md:text-base uppercase tracking-[0.12em] font-semibold"
