@@ -41,8 +41,6 @@ export default function Home() {
         >
           <WhereWeWatch />
         </motion.section>
-
-        {/* Upcoming Matches */}
         <motion.section
           id="upcoming-matches"
           className="mt-4 md:mt-6 no-hover"
