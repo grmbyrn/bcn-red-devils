@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, MessageCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import heroImage from "@/assets/hero-stadium.jpeg";
@@ -46,8 +46,13 @@ const HeroSection = () => {
         />
 
         <div className="space-y-3 md:space-y-4 overflow-hidden">
+          <div className="section-label" style={{ color: "var(--color-primary)" }}>
+            Manchester United Supporters · Barcelona
+          </div>
+
           <motion.h1
-            className="hero-heading font-display leading-none uppercase"
+            className="hero-heading font-display leading-none uppercase text-white"
+            style={{ fontWeight: 900, fontSize: "clamp(56px, 8vw, 96px)" }}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
@@ -72,7 +77,7 @@ const HeroSection = () => {
         >
           <button
             onClick={scrollToMatches}
-            className="btn-primary px-8 py-3 md:px-10 md:py-4 text-sm md:text-base uppercase tracking-[0.12em] font-semibold"
+            className="btn-primary text-sm md:text-base uppercase tracking-[0.12em] font-semibold"
             style={{ borderRadius: "2px" }}
           >
             {t.heroCtaPrimary}
@@ -81,10 +86,8 @@ const HeroSection = () => {
             href="https://chat.whatsapp.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 px-8 py-3 md:px-10 md:py-4 text-foreground border border-white/20 text-sm md:text-base uppercase tracking-[0.12em] font-semibold"
-            style={{ background: "transparent" }}
+            className="btn-secondary flex items-center justify-center gap-2 text-sm md:text-base uppercase tracking-[0.12em] font-semibold"
           >
-            <MessageCircle size={16} />
             {t.heroCtaSecondary}
           </a>
         </motion.div>

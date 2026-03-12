@@ -6,7 +6,6 @@
 */
 
 :root {
-  /* Colour palette (default: dark mode) */
   --color-primary: #DA291C;
   --color-red-dark: #B71C1C;
   --color-black: #0A0A0A;
@@ -18,8 +17,59 @@
   --color-background: var(--color-black);
   --color-foreground: var(--color-white);
 
-  /* Layout */
   --max-content-width: 1280px;
+
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-display: var(--font-sans);
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --line-height-body: 1.6;
+
+  --type-hero-size: clamp(48px, 6vw, 72px);
+  --type-hero-weight: var(--font-weight-black);
+  --type-section-size: clamp(36px, 3.5vw, 48px);
+  --type-section-weight: 800;
+  --type-card-size: 20px;
+  --type-card-weight: 600;
+  --type-body-size: 16px;
+  --type-body-weight: var(--font-weight-regular);
+  --type-meta-size: 13px;
+  --type-meta-weight: 500;
+  --type-meta-letter-spacing: 0.08em;
+
+  --motion-fast: 150ms;
+  --motion-medium: 200ms;
+}
+
+.card {
+  background-color: var(--color-dark);
+  --color-primary: #DA291C;
+  --color-red-dark: #B71C1C;
+  --color-black: #0A0A0A;
+  --color-dark: #1A1A1A;
+  --color-mid: #2A2A2A;
+  --color-white: #FFFFFF;
+  transition: background-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
+  will-change: background-color, box-shadow;
+
+  --color-background: var(--color-black);
+  box-shadow: inset 4px 0 0 var(--color-primary);
+  background-color: var(--color-mid);
+  transform: none;
+  transition: background-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
 
   /* Spacing (8px base grid) */
   --space-8: 8px;
@@ -47,8 +97,8 @@
   --type-hero-size: clamp(48px, 6vw, 72px);
   --type-hero-weight: var(--font-weight-black);
 
-  --type-section-size: clamp(28px, 4.5vw, 36px);
-  --type-section-weight: var(--font-weight-bold);
+  --type-section-size: clamp(36px, 3.5vw, 48px);
+  --type-section-weight: 800;
 
   --type-card-size: 20px; /* mid between 18-22 */
   --type-card-weight: 600;
@@ -85,6 +135,48 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Typography scale and global heading rules (DESIGN.md) */
+h1, .hero-heading {
+  font-size: var(--type-hero-size);
+  font-weight: var(--type-hero-weight);
+  line-height: 1.02;
+  color: var(--color-white);
+  margin: 0;
+}
+
+ h2, .section-title {
+   font-size: var(--type-section-size);
+   font-weight: var(--type-section-weight);
+   color: var(--color-white);
+   margin: 0 0 var(--space-8) 0;
+}
+
+h3, .card-title {
+  font-size: var(--type-card-size);
+  font-weight: var(--type-card-weight);
+  color: var(--color-white);
+  margin: 0;
+}
+
+p, ul, ol, li {
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  color: var(--color-white);
+}
+
+/* Meta / labels */
+.meta, .section-label {
+  font-size: var(--type-meta-size);
+  font-weight: var(--type-meta-weight);
+  letter-spacing: var(--type-meta-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-grey);
+}
+
+/* Small tweaks for readability */
+.text-muted { color: var(--color-grey); }
+.text-primary { color: var(--color-primary); }
+
 /* Max width container helper */
 .container {
   max-width: var(--max-content-width);
@@ -96,12 +188,12 @@ html, body {
 
 /* Sections: mobile-first spacing, desktop increases */
 .section {
-  padding-block: var(--space-48); /* 48px on mobile */
+  padding-block: var(--space-24); /* 24px on mobile (tighter) */
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-block: var(--space-80); /* 80px on desktop */
+    padding-block: var(--space-48); /* 48px on desktop (tighter) */
   }
 }
 
@@ -113,7 +205,7 @@ html, body {
 
 /* Headings */
 h1, .hero-heading { font-size: var(--type-hero-size); font-weight: var(--type-hero-weight); color: var(--color-white); }
-h2, .section-title { font-size: var(--type-section-size); font-weight: var(--type-section-weight); color: var(--color-white); }
+h2, .section-title { font-size: var(--type-section-size); font-weight: var(--type-section-weight); color: var(--color-black); }
 .card-title { font-size: var(--type-card-size); font-weight: var(--type-card-weight); color: var(--color-white); }
 .meta { font-size: var(--type-meta-size); font-weight: var(--type-meta-weight); letter-spacing: var(--type-meta-letter-spacing); color: var(--color-grey); text-transform: uppercase; }
 
@@ -144,13 +236,98 @@ h2, .section-title { font-size: var(--type-section-size); font-weight: var(--typ
 }
 
 /* Image helpers */
-.img-16-9 { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.img-16-9 { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background-color: var(--color-mid); }
+
+/* Card base + hover accent (red left border) */
+.card {
+  background: var(--color-dark);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  box-shadow: none;
+  transition: background var(--motion-fast) ease, border-color var(--motion-fast) ease, transform var(--motion-fast) ease;
+}
+.card:hover {
+  /* use inset box-shadow for left accent to avoid layout shifts */
+  box-shadow: inset 4px 0 0 var(--color-primary);
+  background: linear-gradient(180deg, rgba(26,26,26,1) 0%, rgba(36,36,36,1) 100%);
+  transform: none;
+  transition: background var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
+}
+
+/* Utility to disable hover interactions for sections that should be static */
+.no-hover .card,
+.no-hover .card:hover {
+  box-shadow: none !important;
+  background-color: var(--color-dark) !important;
+}
+
+.no-hover .btn-primary:hover,
+.no-hover .btn-secondary:hover {
+  background-color: inherit !important;
+  border-color: transparent !important;
+}
 
 /* Hero: full viewport with centered content container */
 .hero { min-height: 100vh; display: flex; align-items: center; }
 .hero .container { padding-left: var(--space-16); padding-right: var(--space-16); }
 
 /* Buttons: design tokens only; components can use these variables */
-.btn-primary { background: var(--color-primary); color: var(--color-white); border-radius: 2px; }
-.btn-primary:hover { background: var(--color-red-dark); transform: scale(1.02); transition: transform var(--motion-fast) ease, background var(--motion-fast) ease; }
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 2px;
+  padding: 0.75rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.btn-primary:hover {
+  background: var(--color-red-dark);
+  transition: background var(--motion-fast) ease;
+}
+
+/* Force buttons to not cause layout shifts on hover */
+.btn-primary, .btn-secondary {
+  transform: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-transform: none !important;
+  -webkit-box-shadow: none !important;
+}
+.btn-primary { border: 1px solid transparent; }
+
+/* Secondary button (transparent with white border) */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 2px;
+  padding: 0.75rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
+  transition: background var(--motion-fast) ease;
+}
+
+/* Ensure buttons expand on small screens when used inside flex containers */
+.card .btn-primary, .card .btn-secondary { width: 100%; }
+.card .btn-primary + .btn-secondary { margin-top: var(--space-8); }
+@media (min-width: 640px) {
+  .card .btn-primary + .btn-secondary { margin-top: 0; margin-left: var(--space-16); width: auto; }
+  .card .btn-primary, .card .btn-secondary { width: auto; }
+}
 

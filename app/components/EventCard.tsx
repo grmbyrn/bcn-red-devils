@@ -20,7 +20,7 @@ const EventCard = ({ event }: { event: MatchEvent }) => {
   const month = dateObj.toLocaleDateString("en-GB", { month: "short" }).toUpperCase();
 
   return (
-    <div className="bg-card rounded-lg overflow-hidden border border-transparent hover:border-l-4 hover:border-l-primary transition-colors">
+    <div className="card">
       <div className="flex">
         {/* Date column */}
         <div className="flex flex-col items-center justify-center px-4 py-4 bg-transparent min-w-18">
@@ -32,10 +32,10 @@ const EventCard = ({ event }: { event: MatchEvent }) => {
         {/* Content */}
         <div className="flex-1 p-4">
           <div className="flex items-center gap-2 mb-1">
-            <span className="section-label" style={{ color: "var(--color-primary)" }}>{event.competition}</span>
+            <span className="section-label">{event.competition}</span>
             {event.isLive && (
               <span className="flex items-center gap-1 text-[10px] font-bold text-primary">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary" /> LIVE
+                <span style={{ width: 6, height: 6, borderRadius: 4, backgroundColor: "var(--color-primary)" }} /> LIVE
               </span>
             )}
           </div>
@@ -57,12 +57,7 @@ const EventCard = ({ event }: { event: MatchEvent }) => {
             <span className="flex items-center gap-1 text-xs text-muted">
               <Users size={12} /> {count} {t.attendees}
             </span>
-            <button
-              onClick={handleRsvp}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wide transition-all ${
-                rsvp ? "bg-primary text-white" : "border border-white/10 text-white hover:bg-primary/10"
-              }`}
-            >
+            <button onClick={handleRsvp} className={`${rsvp ? "btn-primary" : "btn-secondary"} flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide` }>
               {rsvp && <Check size={12} />}
               {rsvp ? t.going : t.imGoing}
             </button>

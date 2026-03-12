@@ -10,12 +10,7 @@ const NewsCard = ({ article }: { article: NewsArticle }) => {
   const stripHtml = (s?: string) => (s ? s.replace(/<[^>]*>/g, "") : "");
 
   return (
-    <a
-      href={article.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-card rounded-lg overflow-hidden flex flex-col border border-transparent hover:border-l-4 hover:border-l-primary transition-colors"
-    >
+    <a href={article.url} target="_blank" rel="noopener noreferrer" className="card">
       {article.imageUrl && (
         <div className="w-full">
           <div className="img-16-9 relative w-full">
@@ -32,12 +27,12 @@ const NewsCard = ({ article }: { article: NewsArticle }) => {
 
       <div className="p-4 flex flex-col flex-1">
         <div className="mb-2">
-          <span className="section-label" style={{ color: "var(--color-primary)" }}>{article.source}</span>
+          <span className="section-label">{article.source}</span>
         </div>
 
-        <div className="flex items-center gap-2 mb-2 text-xs text-muted">
-          <span className="font-semibold">{formatted}</span>
-          <span>·</span>
+        <div className="flex items-center gap-2 mb-2 text-xs">
+          <span className="font-semibold" style={{ color: "var(--color-white)" }}>{formatted}</span>
+          <span style={{ color: "var(--color-grey)" }}>·</span>
           <span className="text-muted">{article.source}</span>
         </div>
 

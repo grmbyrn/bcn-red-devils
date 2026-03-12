@@ -5,25 +5,29 @@ const QuickLinks = () => {
   const { t } = useI18n();
 
   return (
-    <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-      <a
-        href="https://chat.whatsapp.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 md:py-4 rounded-lg bg-[hsl(142_70%_35%)] text-primary-foreground text-sm md:text-base font-semibold hover:opacity-90 transition-opacity"
-      >
-        <MessageCircle size={18} />
-        {t.joinWhatsApp}
-      </a>
-      <a
-        href="https://instagram.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 md:py-4 rounded-lg bg-gradient-to-r from-[hsl(330_80%_50%)] to-[hsl(25_90%_55%)] text-primary-foreground text-sm md:text-base font-semibold hover:opacity-90 transition-opacity"
-      >
-        <Instagram size={18} />
-        {t.followInstagram}
-      </a>
+    <div className="card p-4">
+      <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-stretch">
+        <a
+          href="https://chat.whatsapp.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary flex-1 flex items-center justify-center gap-2"
+          style={{ background: "var(--color-primary)" }}
+        >
+          <MessageCircle size={18} />
+          <span style={{ fontWeight: 600 }}>{t.joinWhatsApp}</span>
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-secondary flex-1 flex items-center justify-center gap-2"
+          style={{ borderColor: "rgba(255,255,255,0.12)" }}
+        >
+          <Instagram size={18} />
+          <span style={{ fontWeight: 600 }}>{t.followInstagram}</span>
+        </a>
+      </div>
     </div>
   );
 };

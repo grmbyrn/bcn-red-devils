@@ -51,18 +51,18 @@ export default function MatchesList() {
         const date = new Date(m.utcDate);
         const dt = date.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
         return (
-          <div key={m.id} className="bg-card rounded-lg overflow-hidden border border-transparent hover:border-l-4 hover:border-l-primary transition-colors">
+          <article key={m.id} className="card">
             <div className="p-4">
               <div className="mb-2">
-                <span className="section-label" style={{ color: "var(--color-primary)" }}>{m.competition}</span>
+                <span className="section-label">{m.competition}</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="text-lg font-semibold card-title text-foreground">{m.homeTeam} <span className="mx-2 text-muted">vs</span> {m.awayTeam}</div>
+                <div className="text-lg font-semibold card-title">{m.homeTeam} <span className="mx-2 text-muted">vs</span><br /> {m.awayTeam}</div>
                 <div className="text-xs text-muted">{dt}</div>
               </div>
             </div>
-          </div>
+          </article>
         );
       })}
     </div>

@@ -61,7 +61,7 @@ export default function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium uppercase tracking-[0.08em] px-1 pb-2"
+                className="text-[13px] font-medium uppercase tracking-[0.08em] px-1 pb-2"
                 style={{
                   color: "var(--color-white)",
                   borderBottom: "2px solid",
@@ -72,7 +72,7 @@ export default function Nav() {
               </Link>
             );
           })}
-          <Link href="/join" className="ml-4 btn-primary text-white px-3 py-1 text-sm">Join</Link>
+          <Link href="/join" className="ml-6 btn-primary text-white px-4 py-2 text-[13px]">Join</Link>
         </nav>
 
         {/* Mobile menu button */}
@@ -110,7 +110,7 @@ export default function Nav() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="py-2 text-base font-medium uppercase tracking-[0.08em]"
+                className="py-2 text-[13px] font-medium uppercase tracking-[0.08em]"
                 style={{ color: "var(--color-white)" }}
               >
                 {l.label}
