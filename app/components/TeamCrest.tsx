@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 function slugify(name?: string | null) {
@@ -14,23 +14,20 @@ function slugify(name?: string | null) {
 export default function TeamCrest({ name, src, size = 40 }: { name?: string | null; src?: string | null; size?: number }) {
   const defaultSrc = "/club-crest.svg";
   const slug = slugify(name || "");
-  const [current, setCurrent] = useState<string>(() => src ?? (name ? `/images/crests/${slug}.png` : defaultSrc));
-
-  useEffect(() => {
-    const initial = src ?? (name ? `/images/crests/${slug}.png` : defaultSrc);
-    const t = setTimeout(() => setCurrent(initial), 0);
-    return () => clearTimeout(t);
-  }, [src, name, slug]);
+  // Track only an errored fallback so we don't update state on prop changes
+  const [erroredSrc, setErroredSrc] = useState<string | null>(null);
+  const derived = src ?? (name ? `/images/crests/${slug}.png` : defaultSrc);
+  const imgSrc = erroredSrc ?? derived;
 
   return (
     <Image
-      src={current}
+      src={imgSrc}
       alt={name ?? "club crest"}
       width={size}
       height={size}
       className="object-contain"
       onError={() => {
-        if (current !== defaultSrc) setCurrent(defaultSrc);
+        if (imgSrc !== defaultSrc) setErroredSrc(defaultSrc);
       }}
       style={{ width: size, height: size, display: "block" }}
     />

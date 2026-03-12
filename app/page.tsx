@@ -1,6 +1,5 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 // import { mockNews } from "@/lib/mock-data";
 import MatchesList from "@/components/MatchesList";
@@ -29,11 +28,6 @@ export default function Home() {
         <section id="upcoming-matches" className="mt-4 md:mt-6 no-hover">
           <div className="flex items-center justify-between mb-2">
             <h2 className="section-title">{t.upcoming}</h2>
-            <button
-              className="flex items-center gap-0.5 text-xs md:text-sm text-primary font-semibold uppercase tracking-wide hover:underline"
-            >
-              {t.viewAll} <ChevronRight size={14} />
-            </button>
           </div>
           <MatchesList />
         </section>

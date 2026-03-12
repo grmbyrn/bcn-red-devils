@@ -2,14 +2,20 @@
 
 import { MessageCircle, Instagram } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { WHATSAPP_INVITE_URL } from "@/lib/constants";
+import { WHATSAPP_INVITE_URL, INSTAGRAM_URL } from "@/lib/constants";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const JoinUs = () => {
   const { t } = useI18n();
 
   return (
-    <div className="card relative overflow-hidden rounded-lg">
+    <motion.div className="card relative overflow-hidden rounded-lg"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.7, delay: 1.0, ease: "backOut" }}
+    >
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/man-utd-fans.jpg"
@@ -39,7 +45,7 @@ const JoinUs = () => {
             </a>
 
             <a
-              href="https://www.instagram.com/barcelonareddevils/"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-4 px-8 py-4 rounded-lg text-lg font-bold text-white shadow-xl"
@@ -52,7 +58,7 @@ const JoinUs = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

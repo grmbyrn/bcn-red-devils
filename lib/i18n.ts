@@ -28,6 +28,12 @@ type Translations = {
     paragraph2: string;
     paragraph3: string;
   };
+  whereWeWatch: {
+    title: string;
+    venueName: string;
+    address: string;
+    description: string;
+  };
 };
 
 export function useI18n() {
@@ -63,6 +69,13 @@ export function useI18n() {
         "We host regular match-viewing events at local venues, social gatherings, and community activities to bring Reds supporters together in a friendly, inclusive environment.",
       paragraph3:
         "New members are always welcome — join us to share the passion for Manchester United in Barcelona.",
+    },
+    whereWeWatch: {
+      title: "Where We Watch",
+      venueName: "McCarthy's Bar",
+      address: "Via Laietana, 44, Ciutat Vella, 08003 Barcelona",
+      description:
+        "We gather at McCarthy's Bar to watch Manchester United matches with a lively, friendly crowd and great atmosphere. The venue offers screens, food and a strong community vibe — perfect for matchdays.",
     },
   };
 

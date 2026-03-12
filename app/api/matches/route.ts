@@ -59,7 +59,9 @@ export async function GET(req: NextRequest) {
 
   const teamResults = await Promise.all(uniqueTeamIds.map((id) => fetchTeamById(id)));
   const teamCrestMap = new Map<number, string | null>();
-  uniqueTeamIds.forEach((id, idx) => teamCrestMap.set(id, teamResults[idx] ?? null));
+  for (const [idx, id] of uniqueTeamIds.entries()) {
+    teamCrestMap.set(id, teamResults[idx] ?? null);
+  }
 
   // Map fdMatches to response using the crest map
   const matches = fdMatches.map((m) => {

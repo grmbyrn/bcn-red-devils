@@ -341,3 +341,19 @@ h2, .section-title { font-size: var(--type-section-size); font-weight: var(--typ
   .card .btn-primary, .card .btn-secondary { width: auto; }
 }
 
+
+  /* Motion utilities: simple entrance animation used across components */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .motion-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 600ms cubic-bezier(.2,.9,.2,1) forwards;
+  }
+
+  .motion-reveal-slow { animation-duration: 900ms; }
+  .motion-reveal-fast { animation-duration: 380ms; }
+
