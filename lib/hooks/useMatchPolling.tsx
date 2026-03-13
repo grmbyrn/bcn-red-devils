@@ -28,13 +28,19 @@ export function useMatchPolling(matchId: number | null, enabled = false, interva
     }
 
     let mounted = true;
+    let controller: AbortController | null = null;
 
     const fetchOnce = async () => {
+      // abort any in-flight request before starting a new one
+      if (controller) {
+        controller.abort();
+      }
+      controller = new AbortController();
+
       setLoading(true);
       setError(null);
-      const ac = new AbortController();
       try {
-        const m = await getMatchById(matchId, ac.signal);
+        const m = await getMatchById(matchId, controller.signal);
         if (!mounted) return;
         if (!m) return;
         setStatus(m.status ?? null);
@@ -44,6 +50,11 @@ export function useMatchPolling(matchId: number | null, enabled = false, interva
           if (intervalRef.current) {
             clearInterval(intervalRef.current);
             intervalRef.current = null;
+            // abort any pending request when stopping polling
+            if (controller) {
+              controller.abort();
+              controller = null;
+            }
           }
         }
       } catch (err: unknown) {
@@ -75,6 +86,11 @@ export function useMatchPolling(matchId: number | null, enabled = false, interva
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
+      }
+      // cancel any in-flight request
+      if (controller) {
+        controller.abort();
+        controller = null;
       }
     };
   }, [matchId, enabled, intervalMs]);

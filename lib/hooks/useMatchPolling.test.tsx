@@ -23,12 +23,9 @@ describe("useMatchPolling", () => {
       render(<TestComponent />);
     });
 
-    console.log("status after render:", screen.getByTestId("status").textContent);
-    console.log("home after render:", screen.getByTestId("home").textContent);
-
+    
     await waitFor(() => {
-      console.log("waitFor tick, status:", screen.getByTestId("status").textContent);
       expect(screen.getByTestId("status").textContent).toBe("IN_PLAY");
-    }, { timeout: 2000 });
+    });
   });
 });

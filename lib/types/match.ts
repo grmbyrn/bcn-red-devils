@@ -17,7 +17,7 @@ export type MatchScore = {
 };
 
 export type MatchDetail = {
-  id: number | null;
+  id: number;
   utcDate?: string | null;
   status?: string | null;
   minute?: number | null;

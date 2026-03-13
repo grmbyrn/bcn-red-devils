@@ -33,8 +33,11 @@ export async function GET(req: NextRequest, context: { params?: unknown }) {
       id: m.id ?? null,
       status: m.status ?? null,
       score: {
-        home: fullTime?.home ?? (m.score?.winner === "HOME_TEAM" ? 1 : 0),
-        away: fullTime?.away ?? (m.score?.winner === "AWAY_TEAM" ? 1 : 0),
+        // prefer fullTime when present; if not available, only infer a 1 for the
+        // winning side when `winner` is provided. Otherwise leave as null to
+        // indicate the score is unknown.
+        home: fullTime?.home ?? (m.score?.winner === "HOME_TEAM" ? 1 : null),
+        away: fullTime?.away ?? (m.score?.winner === "AWAY_TEAM" ? 1 : null),
       },
       minute: m.minute ?? null,
     };

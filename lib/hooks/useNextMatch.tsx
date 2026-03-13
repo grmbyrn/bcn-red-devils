@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import type { SimpleMatch } from "../types/match";
 import { getNextMatches } from "../api/matches";
 
-export function useNextMatch(teamId?: string) {
+export function useNextMatch() {
   const [match, setMatch] = useState<SimpleMatch | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -38,7 +38,7 @@ export function useNextMatch(teamId?: string) {
     const ac = new AbortController();
     fetchNext(ac.signal);
     return () => ac.abort();
-  }, [fetchNext, teamId]);
+  }, [fetchNext]);
 
   const refresh = useCallback(() => {
     const ac = new AbortController();

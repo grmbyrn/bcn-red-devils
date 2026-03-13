@@ -26,7 +26,7 @@ export default function ScoreDisplay({
       </div>
 
       <div className="flex flex-col items-center">
-        <div className="text-sm text-primary">{status ?? "LIVE"}</div>
+        {status ? <div className="text-sm text-primary">{status}</div> : null}
       </div>
 
       <div className="flex flex-col items-center">

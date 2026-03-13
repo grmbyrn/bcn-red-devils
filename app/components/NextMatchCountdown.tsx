@@ -38,7 +38,7 @@ export default function NextMatchCountdown({ targetDate }: { targetDate?: string
       <div className="w-full" style={{ background: "var(--color-dark)" }}>
         <div className="max-w-5xl mx-auto w-full px-4 md:px-8 py-2 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <TeamCrest name={match?.homeTeam} src={match?.homeCrest ?? null} size={40} />
+            {!score && <TeamCrest name={match?.homeTeam} src={match?.homeCrest ?? null} size={40} />}
           </div>
 
           <div className="flex items-center gap-3">
@@ -58,7 +58,7 @@ export default function NextMatchCountdown({ targetDate }: { targetDate?: string
           </div>
 
           <div className="flex items-center gap-4">
-            <TeamCrest name={match?.awayTeam} src={match?.awayCrest ?? null} size={40} />
+            {!score && <TeamCrest name={match?.awayTeam} src={match?.awayCrest ?? null} size={40} />}
           </div>
         </div>
       </div>
