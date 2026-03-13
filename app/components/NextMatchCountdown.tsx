@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import TeamCrest from "./TeamCrest";
-import { useI18n } from "@/lib/i18n";
+import { useI18n } from "../lib/i18n";
 
 type Countdown = {
   days: number;

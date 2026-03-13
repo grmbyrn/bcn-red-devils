@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+
 import Link from "next/link";
-import { useI18n } from "@/lib/i18n";
+import { useI18n } from "../lib/i18n";
 import Image from "next/image";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Nav() {
   const { t } = useI18n();
@@ -63,8 +65,8 @@ export default function Nav() {
     <header className="w-full border-b" style={{ background: "var(--color-black)" }}>
       <div className="max-w-5xl mx-auto px-4 md:px-8 flex items-center justify-between py-3 md:py-4">
         <Link href="/" className="flex items-center gap-3" aria-label="Home">
-          <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center overflow-hidden">
-            <Image src="/club-crest.svg" alt="Club crest" width={56} height={56} priority className="block w-auto h-auto" />
+          <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center overflow-hidden">
+            <Image src="/club-crest.svg" alt="Club crest" width={46} height={46} priority className="block" />
           </div>
           <span className="sr-only">{t.clubTitle} - {t.clubSubtitle}</span>
         </Link>
@@ -81,6 +83,7 @@ export default function Nav() {
               </Link>
             );
           })}
+          <LanguageToggle />
         </nav>
 
         {/* Mobile menu button */}
@@ -97,19 +100,28 @@ export default function Nav() {
 
       {/* Mobile drawer */}
       <div className={`fixed inset-0 z-40 md:hidden transition-opacity ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`} aria-hidden={!open}>
-        <div className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
-        <aside className={`absolute top-0 left-0 h-full w-72 bg-background p-4 shadow-lg transform transition-transform ${open ? "translate-x-0" : "-translate-x-full"}`}>
-          <div className="flex items-center justify-between mb-6">
-            <div className="text-lg font-semibold">{t.clubTitle}</div>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setOpen(false)} />
+        <aside
+          className={`absolute top-6 left-0 h-[calc(100%-3rem)] w-11/12 max-w-xs sm:max-w-sm bg-background/95 p-6 rounded-r-lg shadow-lg transform transition-transform ${open ? "translate-x-0" : "-translate-x-full"}`}
+        >
+          <div className="flex items-center justify-end mb-4 gap-2">
+            <LanguageToggle compact />
             <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-1">
               <X />
             </button>
           </div>
-          <nav className="flex flex-col gap-3">
+          <nav className="flex flex-col divide-y divide-white/6">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-2 text-[13px] font-medium uppercase tracking-[0.08em]" style={{ color: "var(--color-white)" }}>
-                {l.label}
-              </Link>
+              <div key={l.href} className="py-3">
+                <Link
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="block text-[15px] font-semibold uppercase tracking-[0.06em]"
+                  style={{ color: "var(--color-white)" }}
+                >
+                  {l.label}
+                </Link>
+              </div>
             ))}
           </nav>
         </aside>

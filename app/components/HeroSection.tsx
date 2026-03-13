@@ -2,7 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
-import { useI18n } from "@/lib/i18n";
+import { useI18n } from "../lib/i18n";
 import { WHATSAPP_INVITE_URL } from "@/lib/constants";
 
 // Use public images to avoid alias resolution issues during build
@@ -38,7 +38,7 @@ const HeroSection = () => {
       />
 
       {/* Content container */}
-      <div className="relative z-10 container flex flex-col items-center text-center px-6 gap-6 md:gap-8 lg:gap-10 -translate-y-8 md:-translate-y-12">
+      <div className="relative z-10 container flex flex-col items-center text-center px-6 gap-6 md:gap-8 lg:gap-10 -translate-y-12 md:-translate-y-16">
         <motion.img
           src={clubCrestSrc}
           alt="Red Devils BCN"

@@ -1,7 +1,7 @@
 "use client";
 
 import { MessageCircle, Instagram } from "lucide-react";
-import { useI18n } from "@/lib/i18n";
+import { useI18n } from "../lib/i18n";
 import { WHATSAPP_INVITE_URL, INSTAGRAM_URL } from "@/lib/constants";
 import Image from "next/image";
 

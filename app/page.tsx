@@ -1,6 +1,6 @@
 "use client";
 
-import { useI18n } from "@/lib/i18n";
+import { useI18n } from "./lib/i18n";
 // import { mockNews } from "@/lib/mock-data";
 import MatchesList from "@/components/MatchesList";
 import JoinUs from "@/components/JoinUs";
@@ -24,30 +24,30 @@ export default function Home() {
       <div className="max-w-5xl mx-auto px-4 md:px-8">
         <motion.section
           className="mt-4 md:mt-6 no-hover"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: "backOut" }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <AboutUs />
         </motion.section>
 
         <motion.section
           className="mt-4 md:mt-6 no-hover"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: "backOut" }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <WhereWeWatch />
         </motion.section>
         <motion.section
           id="upcoming-matches"
           className="mt-4 md:mt-6 no-hover"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: "backOut" }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="flex items-center justify-between mb-2">
             <h2 className="section-title">{t.upcoming}</h2>
@@ -59,10 +59,10 @@ export default function Home() {
         <motion.section
           id="latest-news"
           className="mt-4 md:mt-6 no-hover"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: "backOut" }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="flex items-center justify-between mb-2">
             <h2 className="section-title">{t.latestNews}</h2>
@@ -74,10 +74,10 @@ export default function Home() {
         <motion.section
           id="join-us"
           className="mt-4 md:mt-6 no-hover"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: "backOut" }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="flex items-center justify-between mb-2">
             <h2 className="section-title">{t.joinUs}</h2>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { useI18n } from "@/lib/i18n";
+import { useI18n } from "../lib/i18n";
 import type { SimpleMatch } from "../../lib/matches";
 type ExtendedMatch = SimpleMatch & { homeCrest?: string | null; awayCrest?: string | null };
 import SkeletonCard from "./SkeletonCard";

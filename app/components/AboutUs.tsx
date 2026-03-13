@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useI18n } from "@/lib/i18n";
+import { useI18n } from "../lib/i18n";
 
 // Use public path for images to avoid server-relative static imports
 // Use the image filename directly (avoid query params which Next Image blocks for local files)
