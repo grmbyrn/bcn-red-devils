@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { I18nProvider } from "./lib/i18n";
+import VercelAnalytics from "./components/VercelAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <Footer />
         </I18nProvider>
+
+        <VercelAnalytics />
       </body>
     </html>
   );
