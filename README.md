@@ -6,7 +6,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-38B2AC)](https://tailwindcss.com)
 [![Framer Motion](https://img.shields.io/badge/Framer--Motion-12-orange)](https://www.framer.com/motion/)
 
-Live demo: https://bcn-red-devils.vercel.app
+Live site: https://barcelonareddevils.com/
 
 Repo / Author: Graeme Byrne — https://github.com/grmbyrn
 
