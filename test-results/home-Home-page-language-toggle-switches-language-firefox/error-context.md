@@ -1,0 +1,81 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "Club crest" [ref=e6]
+        - generic [ref=e7]: Red Devils BCN - Manchester United Supporters Club · Barcelona
+      - navigation [ref=e8]:
+        - link "Home" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Upcoming Matches" [ref=e10] [cursor=pointer]:
+          - /url: "#upcoming-matches"
+        - link "Latest News" [ref=e11] [cursor=pointer]:
+          - /url: "#latest-news"
+        - link "Join Us" [ref=e12] [cursor=pointer]:
+          - /url: "#join-us"
+        - switch "Toggle language" [ref=e13] [cursor=pointer]:
+          - generic [ref=e16]: EN
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - img "Stadium" [ref=e20]
+        - generic [ref=e22]:
+          - img "Red Devils BCN" [ref=e23]
+          - generic [ref=e24]:
+            - generic [ref=e25]: Manchester United Supporters Club · Barcelona
+            - heading "Reds Barcelona" [level=1] [ref=e26]
+            - paragraph [ref=e27]: Manchester United supporters in the heart of Catalonia
+          - generic [ref=e28]:
+            - button "View Next Match" [ref=e29] [cursor=pointer]
+            - link "Join the Group" [ref=e30] [cursor=pointer]:
+              - /url: https://chat.whatsapp.com/Fuf05kSuITp2dUoody1qtZ
+        - button "Scroll down" [ref=e31]:
+          - img [ref=e32]
+      - generic [ref=e34]:
+        - generic [ref=e37]:
+          - heading "About Red Devils BCN" [level=2] [ref=e38]
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - paragraph [ref=e41]: Red Devils BCN is a Manchester United supporters group based in Barcelona. Founded in 2025, we gather fans from across Catalonia to watch matches, organise meetups, and support the team together.
+              - paragraph [ref=e42]: We host regular match-viewing events at local venues, social gatherings, and community activities to bring Reds supporters together in a friendly, inclusive environment.
+              - paragraph [ref=e43]: New members are always welcome — join us to share the passion for Manchester United in Barcelona.
+            - img "Manchester United players and fans" [ref=e45]
+        - generic [ref=e47]:
+          - heading "Where We Watch" [level=2] [ref=e48]
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - heading "McCarthy's Bar" [level=3] [ref=e52]
+              - generic [ref=e53]: Via Laietana, 44, Ciutat Vella, 08003 Barcelona
+              - paragraph [ref=e54]: We gather at McCarthy's Bar to watch Manchester United matches with a lively, friendly crowd and great atmosphere. The venue offers screens, food and a strong community vibe — perfect for matchdays.
+            - iframe [ref=e57]:
+              
+        - heading "Upcoming Matches" [level=2] [ref=e60]
+        - heading "Latest News" [level=2] [ref=e72]
+        - generic [ref=e90]:
+          - heading "Join Us" [level=2] [ref=e92]
+          - generic [ref=e93]:
+            - img "Fans" [ref=e95]
+            - generic [ref=e99]:
+              - link "Join WhatsApp" [ref=e100] [cursor=pointer]:
+                - /url: https://chat.whatsapp.com/Fuf05kSuITp2dUoody1qtZ
+                - img [ref=e101]
+                - generic [ref=e103]: Join WhatsApp
+              - link "Follow on Instagram" [ref=e104] [cursor=pointer]:
+                - /url: https://www.instagram.com/barcelonareddevils/
+                - img [ref=e105]
+                - generic [ref=e109]: Follow on Instagram
+  - contentinfo [ref=e110]:
+    - generic [ref=e111]:
+      - generic [ref=e112]: © 2026 Red Devils BCN
+      - generic [ref=e113]:
+        - text: Made by
+        - link "Graeme Byrne" [ref=e114] [cursor=pointer]:
+          - /url: https://www.graemebyrne.com/
+  - button "Open Next.js Dev Tools" [ref=e120] [cursor=pointer]:
+    - img [ref=e121]
+  - alert [ref=e125]
+```

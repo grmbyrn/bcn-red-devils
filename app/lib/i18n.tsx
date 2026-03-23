@@ -71,7 +71,7 @@ const translations = {
     noEvents: "No hay eventos próximos",
     joinUs: "Únete",
     quickLinks: "Enlaces Rápidos",
-    heroTitle: "Reds Barcelona",
+    heroTitle: "Los Rojos de Barcelona",
     heroTagline: "Seguidores del Manchester United en el corazón de Cataluña",
     heroCtaPrimary: "Ver Próximo Partido",
     heroCtaSecondary: "Únete al Grupo",

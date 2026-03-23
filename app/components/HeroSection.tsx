@@ -61,6 +61,7 @@ const HeroSection = () => {
 
           <motion.h1
             className="hero-heading font-display leading-none uppercase text-white"
+            data-testid="hero-heading"
             style={{ fontWeight: 900, fontSize: "clamp(56px, 8vw, 96px)" }}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}

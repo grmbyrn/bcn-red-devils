@@ -1,0 +1,197 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "Club crest" [ref=e6]
+        - generic [ref=e7]: Red Devils BCN - Manchester United Supporters Club · Barcelona
+      - navigation [ref=e8]:
+        - link "Home" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Upcoming Matches" [ref=e10] [cursor=pointer]:
+          - /url: "#upcoming-matches"
+        - link "Latest News" [ref=e11] [cursor=pointer]:
+          - /url: "#latest-news"
+        - link "Join Us" [ref=e12] [cursor=pointer]:
+          - /url: "#join-us"
+        - switch "Toggle language" [ref=e13] [cursor=pointer]:
+          - generic [ref=e16]: EN
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - img "Stadium" [ref=e20]
+        - generic [ref=e22]:
+          - img "Red Devils BCN" [ref=e23]
+          - generic [ref=e24]:
+            - generic [ref=e25]: Manchester United Supporters Club · Barcelona
+            - heading "Reds Barcelona" [level=1] [ref=e26]
+            - paragraph [ref=e27]: Manchester United supporters in the heart of Catalonia
+          - generic [ref=e28]:
+            - button "View Next Match" [ref=e29] [cursor=pointer]
+            - link "Join the Group" [ref=e30] [cursor=pointer]:
+              - /url: https://chat.whatsapp.com/Fuf05kSuITp2dUoody1qtZ
+        - button "Scroll down" [ref=e31]:
+          - img [ref=e32]
+      - generic [ref=e36]:
+        - img "Manchester United FC" [ref=e38]
+        - generic [ref=e39]:
+          - generic [ref=e40]: Match Day
+          - generic [ref=e41]:
+            - generic [ref=e42]: "21"
+            - generic [ref=e43]: DAYS
+          - generic [ref=e45]:
+            - generic [ref=e46]: "04"
+            - generic [ref=e47]: HRS
+          - generic [ref=e49]:
+            - generic [ref=e50]: "54"
+            - generic [ref=e51]: MIN
+          - generic [ref=e53]:
+            - generic [ref=e54]: "44"
+            - generic [ref=e55]: SEC
+        - img "Leeds United FC" [ref=e57]
+      - generic [ref=e58]:
+        - generic [ref=e61]:
+          - heading "About Red Devils BCN" [level=2] [ref=e62]
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - paragraph [ref=e65]: Red Devils BCN is a Manchester United supporters group based in Barcelona. Founded in 2025, we gather fans from across Catalonia to watch matches, organise meetups, and support the team together.
+              - paragraph [ref=e66]: We host regular match-viewing events at local venues, social gatherings, and community activities to bring Reds supporters together in a friendly, inclusive environment.
+              - paragraph [ref=e67]: New members are always welcome — join us to share the passion for Manchester United in Barcelona.
+            - img "Manchester United players and fans" [ref=e69]
+        - generic [ref=e71]:
+          - heading "Where We Watch" [level=2] [ref=e72]
+          - generic [ref=e74]:
+            - generic [ref=e75]:
+              - heading "McCarthy's Bar" [level=3] [ref=e76]
+              - generic [ref=e77]: Via Laietana, 44, Ciutat Vella, 08003 Barcelona
+              - paragraph [ref=e78]: We gather at McCarthy's Bar to watch Manchester United matches with a lively, friendly crowd and great atmosphere. The venue offers screens, food and a strong community vibe — perfect for matchdays.
+            - iframe [ref=e81]:
+              - link "Maps (opens in new tab)" [ref=f1e7] [cursor=pointer]:
+                - /url: about:invalid#zClosurez
+                - text: Maps
+                - img [ref=f1e9]
+        - generic [ref=e82]:
+          - heading "Upcoming Matches" [level=2] [ref=e84]
+          - generic [ref=e85]:
+            - article [ref=e86]:
+              - generic [ref=e87]:
+                - generic [ref=e89]: Premier League
+                - generic [ref=e90]:
+                  - generic [ref=e91]:
+                    - generic [ref=e92]:
+                      - img "Manchester United FC" [ref=e93]
+                      - generic [ref=e94]: Manchester United FC
+                    - generic [ref=e95]:
+                      - img "Leeds United FC" [ref=e96]
+                      - generic [ref=e97]: Leeds United FC
+                  - generic [ref=e98]: Apr 13, 2026, 9:00 PM
+            - article [ref=e99]:
+              - generic [ref=e100]:
+                - generic [ref=e102]: Premier League
+                - generic [ref=e103]:
+                  - generic [ref=e104]:
+                    - generic [ref=e105]:
+                      - img "Chelsea FC" [ref=e106]
+                      - generic [ref=e107]: Chelsea FC
+                    - generic [ref=e108]:
+                      - img "Manchester United FC" [ref=e109]
+                      - generic [ref=e110]: Manchester United FC
+                  - generic [ref=e111]: Apr 18, 2026, 9:00 PM
+            - article [ref=e112]:
+              - generic [ref=e113]:
+                - generic [ref=e115]: Premier League
+                - generic [ref=e116]:
+                  - generic [ref=e117]:
+                    - generic [ref=e118]:
+                      - img "Manchester United FC" [ref=e119]
+                      - generic [ref=e120]: Manchester United FC
+                    - generic [ref=e121]:
+                      - img "Brentford FC" [ref=e122]
+                      - generic [ref=e123]: Brentford FC
+                  - generic [ref=e124]: Apr 27, 2026, 9:00 PM
+            - article [ref=e125]:
+              - generic [ref=e126]:
+                - generic [ref=e128]: Premier League
+                - generic [ref=e129]:
+                  - generic [ref=e130]:
+                    - generic [ref=e131]:
+                      - img "Manchester United FC" [ref=e132]
+                      - generic [ref=e133]: Manchester United FC
+                    - generic [ref=e134]:
+                      - img "Liverpool FC" [ref=e135]
+                      - generic [ref=e136]: Liverpool FC
+                  - generic [ref=e137]: May 2, 2026, 4:00 PM
+        - generic [ref=e138]:
+          - heading "Latest News" [level=2] [ref=e140]
+          - generic [ref=e141]:
+            - 'link "Newcastle United 2-1 Manchester United: Premier League – as it happened The Guardian 4 Mar · The Guardian Newcastle United 2-1 Manchester United: Premier League – as it happened MBM: Will Osula scored a majestic 90th-minute solo goal to secure the points – deservedly so - for ten-man Toon. Scott Murray was watching" [ref=e142] [cursor=pointer]':
+              - /url: https://www.theguardian.com/football/live/2026/mar/04/newcastle-v-manchester-united-premier-league-live
+              - 'img "Newcastle United 2-1 Manchester United: Premier League – as it happened" [ref=e145]'
+              - generic [ref=e146]:
+                - generic [ref=e148]: The Guardian
+                - generic [ref=e149]:
+                  - generic [ref=e150]: 4 Mar
+                  - generic [ref=e151]: ·
+                  - generic [ref=e152]: The Guardian
+                - 'heading "Newcastle United 2-1 Manchester United: Premier League – as it happened" [level=3] [ref=e153]'
+                - paragraph [ref=e154]: "MBM: Will Osula scored a majestic 90th-minute solo goal to secure the points – deservedly so - for ten-man Toon. Scott Murray was watching"
+            - 'link "West Ham United 1-1 Manchester United: Premier League – as it happened The Guardian 10 Feb · The Guardian West Ham United 1-1 Manchester United: Premier League – as it happened Minute-by-minute report: Benjamin Šeško rescued a point for Manchester United deep into injury time to keep Michael Carrick’s unbeaten record intact. Scott Murray was watching" [ref=e155] [cursor=pointer]':
+              - /url: https://www.theguardian.com/football/live/2026/feb/10/west-ham-manchester-united-premier-league-live
+              - 'img "West Ham United 1-1 Manchester United: Premier League – as it happened" [ref=e158]'
+              - generic [ref=e159]:
+                - generic [ref=e161]: The Guardian
+                - generic [ref=e162]:
+                  - generic [ref=e163]: 10 Feb
+                  - generic [ref=e164]: ·
+                  - generic [ref=e165]: The Guardian
+                - 'heading "West Ham United 1-1 Manchester United: Premier League – as it happened" [level=3] [ref=e166]'
+                - paragraph [ref=e167]: "Minute-by-minute report: Benjamin Šeško rescued a point for Manchester United deep into injury time to keep Michael Carrick’s unbeaten record intact. Scott Murray was watching"
+            - 'link "Manchester United v Aston Villa: Premier League – as it happened The Guardian 15 Mar · The Guardian Manchester United v Aston Villa: Premier League – as it happened Manchester United boosted their push for Champions League football next season with a comprehensive win. Join Tim de Lisle for reaction" [ref=e168] [cursor=pointer]':
+              - /url: https://www.theguardian.com/football/live/2026/mar/15/manchester-united-v-aston-villa-premier-league-live
+              - 'img "Manchester United v Aston Villa: Premier League – as it happened" [ref=e171]'
+              - generic [ref=e172]:
+                - generic [ref=e174]: The Guardian
+                - generic [ref=e175]:
+                  - generic [ref=e176]: 15 Mar
+                  - generic [ref=e177]: ·
+                  - generic [ref=e178]: The Guardian
+                - 'heading "Manchester United v Aston Villa: Premier League – as it happened" [level=3] [ref=e179]'
+                - paragraph [ref=e180]: Manchester United boosted their push for Champions League football next season with a comprehensive win. Join Tim de Lisle for reaction
+            - 'link "Bournemouth v Manchester United: Premier League – as it happened The Guardian 20 Mar · The Guardian Bournemouth v Manchester United: Premier League – as it happened Minute-by-minute report: Junior Kroupi’s penalty after Harry Maguire’s dismissal earned Bournemouth a 2-2 draw against Manchester United" [ref=e181] [cursor=pointer]':
+              - /url: https://www.theguardian.com/football/live/2026/mar/20/bournemouth-v-manchester-united-premier-league-live
+              - 'img "Bournemouth v Manchester United: Premier League – as it happened" [ref=e184]'
+              - generic [ref=e185]:
+                - generic [ref=e187]: The Guardian
+                - generic [ref=e188]:
+                  - generic [ref=e189]: 20 Mar
+                  - generic [ref=e190]: ·
+                  - generic [ref=e191]: The Guardian
+                - 'heading "Bournemouth v Manchester United: Premier League – as it happened" [level=3] [ref=e192]'
+                - paragraph [ref=e193]: "Minute-by-minute report: Junior Kroupi’s penalty after Harry Maguire’s dismissal earned Bournemouth a 2-2 draw against Manchester United"
+        - generic [ref=e194]:
+          - heading "Join Us" [level=2] [ref=e196]
+          - generic [ref=e197]:
+            - img "Fans" [ref=e199]
+            - generic [ref=e203]:
+              - link "Join WhatsApp" [ref=e204] [cursor=pointer]:
+                - /url: https://chat.whatsapp.com/Fuf05kSuITp2dUoody1qtZ
+                - img [ref=e205]
+                - generic [ref=e207]: Join WhatsApp
+              - link "Follow on Instagram" [ref=e208] [cursor=pointer]:
+                - /url: https://www.instagram.com/barcelonareddevils/
+                - img [ref=e209]
+                - generic [ref=e212]: Follow on Instagram
+  - contentinfo [ref=e213]:
+    - generic [ref=e214]:
+      - generic [ref=e215]: © 2026 Red Devils BCN
+      - generic [ref=e216]:
+        - text: Made by
+        - link "Graeme Byrne" [ref=e217] [cursor=pointer]:
+          - /url: https://www.graemebyrne.com/
+  - button "Open Next.js Dev Tools" [ref=e223] [cursor=pointer]:
+    - img [ref=e224]
+  - alert [ref=e227]
+```

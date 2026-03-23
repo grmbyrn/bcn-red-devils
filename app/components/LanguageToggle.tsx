@@ -31,7 +31,7 @@ export default function LanguageToggle({ compact = false }: { compact?: boolean 
   return (
     <div
       role="switch"
-      aria-checked={lang === "es"}
+      aria-checked={lang === "es" ? "true" : "false"}
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
